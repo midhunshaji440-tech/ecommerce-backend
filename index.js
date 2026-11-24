@@ -9,6 +9,9 @@ import userProfileRoutes from './routes/userProfileRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import analyticsRoutes from './routes/analyticsRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
+import recommendationRoutes from './routes/recommendationRoutes.js';
+
+
 
 dotenv.config();
 
@@ -30,6 +33,8 @@ app.use((req, res, next) => {
     });
 });
 app.use(errorHandler);
+app.use('/api/analytics', analyticsRoutes);
+app.use('/api/recommendations', recommendationRoutes);
 
 connectDB();
 
